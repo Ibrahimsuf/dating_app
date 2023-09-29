@@ -1,0 +1,12 @@
+<%= turbo_frame_tag @profile do %>
+  <%= form_for @profile, url: profile_path, method: :patch do |f| %>
+    <div class="field">
+      <%= f.label :bio %>
+      <%= f.text_area :bio, rows: 4 %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Update Profile' %>
+    </div>
+  <% end %>
+<% end %>
