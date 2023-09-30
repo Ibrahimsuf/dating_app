@@ -25,9 +25,12 @@
                             <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
                                 <%=@user.full_name%> 
                             </h3>
-                            <button class="absolute left-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Left Button</button>
-                            <button class="absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Right Button</button>
-
+                            <%if current_user == @profile.user%>
+                                <button class="absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Look for Matches</button>
+                            <%else current_user != @profile.user%>
+                                <button class="absolute left-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Left Button</button>
+                                <button class="absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Right Button</button>
+                            <%end%>
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
                                 Los Angeles, California
