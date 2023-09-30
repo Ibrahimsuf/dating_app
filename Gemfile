@@ -74,3 +74,5 @@ end
 gem 'devise'
 gem "tailwindcss-rails", "~> 2.0"
 gem "font-awesome-rails"
+
+gem "cancancan", "~> 3.5"
