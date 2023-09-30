@@ -4,7 +4,7 @@
             <div class="absolute top-0 w-full h-full bg-center bg-cover" style="background-image: url(<%=asset_path('background.jpg')%>)">
                 <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
             </div>
-            <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
+           <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
                 <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
                     <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
                 </svg>
@@ -25,6 +25,9 @@
                             <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
                                 <%=@user.full_name%> 
                             </h3>
+                            <button class="absolute left-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Left Button</button>
+                            <button class="absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Right Button</button>
+
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
                                 Los Angeles, California

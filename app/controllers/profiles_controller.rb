@@ -11,11 +11,6 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
-    if current_user == @profile.user
-      render 'show_own'
-    else
-      render 'show_others'
-    end
   end
 
   # GET /profiles/new
