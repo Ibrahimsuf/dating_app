@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_24_195738) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_30_222727) do
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.text "bio"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "seen_profiles", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "profile_id", null: false
+    t.index ["user_id", "profile_id"], name: "index_seen_profiles_on_user_id_and_profile_id"
   end
 
   create_table "users", force: :cascade do |t|

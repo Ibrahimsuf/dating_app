@@ -26,9 +26,9 @@
                                 <%=@user.full_name%> 
                             </h3>
                             <%if current_user == @profile.user%>
-                                <button class="absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Look for Matches</button>
+                                <%= link_to "Look for Matches", profile_matcher_index_path, class: "absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md" %>
                             <%else current_user != @profile.user%>
-                                <button class="absolute left-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Left Button</button>
+                                <%= link_to "Don't Match", profile_matcher_index_path, class: "absolute left-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md" %>
                                 <button class="absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Right Button</button>
                             <%end%>
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
