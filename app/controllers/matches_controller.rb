@@ -25,8 +25,8 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to match_url(@match), notice: "Match was successfully created." }
-        format.json { render :show, status: :created, location: @match }
+        flash[:notice] = "You matched with %{name}. Wait to see if they match with you." % {name: @match.matched_with_user.first_name}
+        format.html { redirect_to profile_matcher_index_path}
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @match.errors, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class MatchesController < ApplicationController
   def update
     respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to match_url(@match), notice: "Match was successfully updated." }
+        format.html { redirect_to match_url(@match), notice: "You matched with %{name}. Wait to see if they match with you." % {name: @match.user_matched_with.first_name}}
         format.json { render :show, status: :ok, location: @match }
       else
         format.html { render :edit, status: :unprocessable_entity }
