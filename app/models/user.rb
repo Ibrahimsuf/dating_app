@@ -6,7 +6,8 @@ class User < ApplicationRecord
   
   has_one :profile
   has_and_belongs_to_many :seen_profiles, join_table: "seen_profiles", class_name: "Profile"
-  has_many :matches
+  has_many :as_matching_user, class_name: 'Match', foreign_key: 'matching_user_id'
+  has_many :as_matched_with_user, class_name: 'Match', foreign_key: 'matched_with_user_id'
   after_create :create_user_profile
 
   def full_name
@@ -17,13 +18,13 @@ class User < ApplicationRecord
     unseen_profiles = Profile.where.not(id: self.seen_profiles.pluck(:id))
     unseen_profiles.sample.id
   end
+  
+  def people_matched_with_user
+    Match.where(matched_with_user_id: self.id).pluck(:matching_user_id)
+  end
 
   private
   def create_user_profile
     Profile.create(user: self)
-  end
-
-  def people_matched_with_user
-    Match.where(matched_with_user_id: self.id)
   end
 end
