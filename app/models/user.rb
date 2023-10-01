@@ -22,4 +22,8 @@ class User < ApplicationRecord
   def create_user_profile
     Profile.create(user: self)
   end
+
+  def people_matched_with_user
+    Match.where(matched_with_user_id: self.id)
+  end
 end
