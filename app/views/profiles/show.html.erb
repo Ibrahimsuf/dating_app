@@ -29,7 +29,13 @@
                                 <%= link_to "Look for Matches", profile_matcher_index_path, class: "absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md" %>
                             <%else current_user != @profile.user%>
                                 <%= link_to "Don't Match", profile_matcher_index_path, class: "absolute left-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md" %>
-                                <button class="absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md">Right Button</button>
+                                <%= form_with(model: @match, class: "contents") do |form| %>
+                                <div class="inline">
+                                    <%= form.hidden_field :user_1_id, value: current_user.id %>
+                                    <%= form.hidden_field :user_2_id, value: @profile.user.id %>
+                                    <%= form.submit class: "absolute right-4 top-10 z-10 transform -translate-y-1/2 px-4 py-2 bg-blue-500 text-white rounded-md" %>
+                                </div>
+                                <% end %>
                             <%end%>
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_one :profile
   has_and_belongs_to_many :seen_profiles, join_table: "seen_profiles", class_name: "Profile"
+  has_many :matches
   after_create :create_user_profile
 
   def full_name

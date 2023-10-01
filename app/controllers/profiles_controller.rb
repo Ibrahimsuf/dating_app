@@ -11,6 +11,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    if @profile.user != current_user
+      @match = Match.new
+    end
   end
 
   # GET /profiles/new

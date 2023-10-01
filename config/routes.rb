@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :matches
   get 'root/index'
   resources :profile_matcher, only: [:index]
   resources :profiles
